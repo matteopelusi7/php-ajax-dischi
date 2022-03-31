@@ -23,28 +23,34 @@
 
             <div class="container">
         
-              <ul class="card-wrapper">
+              <ul class="card-wrapper" v-if="disks.length == 10">
         
-                <li class="card-item">
+                <li class="card-item" v-for="disk in disks">
 
                     <div class="img-container">
                       <figure class="img-wrapper">
-                        <img src="" alt="">
+                        <img :src="disk.poster" alt="">
                       </figure>
                     </div>
                 
                     <div class="card-info">
-                      <h3 class="title-card"></h3>
-                      <p class="subtitle-card"></p>
-                      <p class="subtitle-card"></p>
+                      <h3 class="title-card">{{ disk.title }}</h3>
+                      <p class="subtitle-card">{{ disk.author }}</p>
+                      <p class="subtitle-card">{{ disk.year }}</p>
                     </div>
                 
                   </li>
 
               </ul>
         
-            </div>
+              <div v-else >
+  
+                <div class="loading">Loading .....</div>
         
+              </div>
+
+            </div>
+
           </main>
 
     </div>

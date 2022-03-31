@@ -1,9 +1,14 @@
 const app = new Vue({
     el: '#app',
     data: {
-
+        disks: [],
     },
-    methods: {
+    created() {
 
+        axios.get('./server.php')
+        .then(res => {
+            this.disks = res.data;
+        })
+        
     }
 });
